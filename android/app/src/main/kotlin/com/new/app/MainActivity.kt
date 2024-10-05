@@ -1,4 +1,4 @@
-package com.example.new_year_app
+package com.new.app
 
 import io.flutter.embedding.android.FlutterActivity
 
