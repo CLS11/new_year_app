@@ -16,8 +16,8 @@ class NewYearApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: NewYearsCountdownScreen(
-        overrideStartDateTime: DateTime.parse('2024-12-31 23:59:51'),
-        doTick: false,
+        overrideStartDateTime: DateTime.parse('2024-12-31 23:59:55'),
+        doTick: true,
       ),
       debugShowCheckedModeBanner: false,
     );
