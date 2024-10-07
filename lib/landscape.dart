@@ -2,11 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:new_year_app/phases.dart';
 
 class Landscape extends StatelessWidget {
-  const Landscape(
-      {required this.mode, super.key, required this.time, required this.year});
+  const Landscape({
+    required this.mode,
+    super.key,
+    required this.time,
+    required this.year,
+    this.fireworks = const SizedBox(),
+    this.flashPercent = 0.0,
+  });
 
   static const switchModeDuration = Duration(milliseconds: 500);
   final EnvironmentMode mode;
+  final Widget fireworks;
+  final double flashPercent;
   final String time;
   final String year;
 
@@ -16,7 +24,9 @@ class Landscape extends StatelessWidget {
       children: [
         _buildSky(),
         _buildStars(),
+        fireworks,
         _buildMountains(),
+        _buildMountainsFlash(),
         _buildTexts(),
       ],
     );
@@ -82,6 +92,21 @@ class Landscape extends StatelessWidget {
         child: Image.asset(
           mountainsImagePath,
           key: ValueKey(mode),
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMountainsFlash() {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: Opacity(
+        opacity: flashPercent,
+        child: Image.asset(
+          'assets/mountains_night_flash.png',
           fit: BoxFit.cover,
         ),
       ),
